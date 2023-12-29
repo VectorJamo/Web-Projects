@@ -24,6 +24,11 @@ body {
     font-family: 'Archivo';
     line-height: var(--content-line-height);
     letter-spacing: var(--content-letter-spacing);
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 h1, h2 {
@@ -204,6 +209,7 @@ header h5 {
 
 footer {
     margin-top: var(--site-v-margins);
+    
 }
 footer ul {
     list-style-type: none;
