@@ -1,5 +1,6 @@
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 
     --site-max-width: 100rem; /* 1600 pixels */
     --site-v-margins: 0.5rem;
@@ -24,6 +25,8 @@ body {
     font-family: 'Archivo';
     line-height: var(--content-line-height);
     letter-spacing: var(--content-letter-spacing);
+    margin: 0;
+    padding: 0;
 
     height: 100vh;
     display: flex;
@@ -109,6 +112,57 @@ header h5 {
 .hnav a:hover {
     background: var(--nav-text-color);
     color: var(--nav-color);
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.dropdown-content {
+    display: none;
+    
+    box-sizing: border-box;
+    background: var(--content-background-color);
+    color: var(--content-text-color);
+    position: absolute;
+    z-index: 1;
+    border: 2px solid var(--header-color);
+    padding-top: var(--site-v-margins);
+
+}
+
+.dropdown:hover .dropdown-content, .nested-dropdown:hover .nested-dropdown-content {
+    display: block;
+}
+
+.dropdown-content li a, .nested-dropdown-content li a{
+    background: var(--content-background-color);
+    color: var(--content-text-color);
+    padding: 1rem;
+}
+
+.dropdown-content li a:hover, .nested-dropdown-content li a:hover {
+    background: var(--nav-color);
+    color: var(--nav-text-color);
+}
+
+.nested-dropdown {
+    position: relative;
+}
+.nested-dropdown-content {
+    box-sizing: border-box;
+    background: var(--content-background-color);
+    color: var(--content-text-color);
+    z-index: 1;
+    border: 2px solid var(--header-color);
+
+    position: absolute;
+    display: none;
+    left: 100%;
+    top: 0;
+    width: max-content;
 }
 
 .content {
@@ -261,6 +315,9 @@ footer h2 {
 }
 
 @media screen and (max-width: 450px) {
+    body {
+        margin: 0.5rem;
+    }
     .hnav, .hnav-left, .footer-content {
         flex-direction: column;
     }
@@ -281,5 +338,13 @@ footer h2 {
 
     .image-gallery {
         flex-direction: column;
+    }
+
+    .dropdown-content, .nested-dropdown-content {
+        width: 95vw;
+    }
+    .nested-dropdown-content {
+        left: -1%;
+        top: 100%;
     }
 }
